@@ -1,0 +1,20 @@
+server.port: 8081
+
+spring:
+  application.name: tsp.solver
+
+  datasource:
+    url:  jdbc:sqlserver://localhost:1433;encrypt=false;trustServerCertificate=false;databaseName=RTM_LIDERTIM
+    username: user
+    password: user
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    show-sql: true
+    properties.hibernate.dialect: org.hibernate.dialect.SQLServerDialect
+    hibernate.ddl-auto: none
+
+constant:
+  map:
+    mapFolder: D:\Igor\PROJECTS\JAVA\travers\
+    cashFolder: D:\Igor\PROJECTS\JAVA\travers\cash

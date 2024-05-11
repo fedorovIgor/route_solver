@@ -1,0 +1,47 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.4'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.fedorov'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc:11.2.3.jre17'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	implementation 'com.graphhopper:graphhopper-core:9.0'
+	implementation 'com.graphhopper:jsprit-core:1.8'
+//	implementation 'com.graphhopper:jsprit-core:1.9.0-beta.11'
+
+	implementation 'org.openstreetmap.osmosis:osmosis-core:0.49.2'
+	implementation 'org.openstreetmap.osmosis:osmosis-areafilter:0.49.2'
+	implementation 'org.openstreetmap.osmosis:osmosis-pbf:0.49.2'
+
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//testImplementation 'org.springframework.security:spring-security-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
