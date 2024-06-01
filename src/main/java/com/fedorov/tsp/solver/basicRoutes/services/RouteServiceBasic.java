@@ -307,7 +307,8 @@ public class RouteServiceBasic implements RouteServiceCalculate, RouteServiceRea
     }
 
     public void distributeVisitsByRoute(Long routeId) {
-        var route = routeRepository.findByIdWithCustomerActivity(routeId).orElseThrow(() -> new RuntimeException("Cant find route by id: " + routeId));
+        var route = routeRepository.findByIdWithCustomerActivity(routeId)
+                .orElseThrow(() -> new RuntimeException("Cant find route by id: " + routeId));
         var routeDay = routeDayRepository.findByRouteId(routeId);
         var daysIds = routeDay.stream()
                 .map(d -> d.getId())
